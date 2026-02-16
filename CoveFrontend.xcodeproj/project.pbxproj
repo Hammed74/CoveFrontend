@@ -6,17 +6,24 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		DC4A8C142F42B32B00FCF1E1 /* MapUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4A8C0A2F42B32B00FCF1E1 /* MapUser.swift */; };
+		DC4A8C172F42B32B00FCF1E1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4A8C112F42B32B00FCF1E1 /* ContentView.swift */; };
+		DC4A8C182F42B32B00FCF1E1 /* CoveFrontendApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4A8C122F42B32B00FCF1E1 /* CoveFrontendApp.swift */; };
+		DC4A8C192F42B32B00FCF1E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC4A8C102F42B32B00FCF1E1 /* Assets.xcassets */; };
+		DC4A8C1A2F42B3F400FCF1E1 /* FrontendMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4A8C0C2F42B32B00FCF1E1 /* FrontendMapViewModel.swift */; };
+		DC4A8C1B2F42B40D00FCF1E1 /* AvatarMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4A8C0E2F42B32B00FCF1E1 /* AvatarMarkerView.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		DC4A8BD42F427C8F00FCF1E1 /* CoveFrontend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoveFrontend.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC4A8C0A2F42B32B00FCF1E1 /* MapUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapUser.swift; sourceTree = "<group>"; };
+		DC4A8C0C2F42B32B00FCF1E1 /* FrontendMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontendMapViewModel.swift; sourceTree = "<group>"; };
+		DC4A8C0E2F42B32B00FCF1E1 /* AvatarMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarMarkerView.swift; sourceTree = "<group>"; };
+		DC4A8C102F42B32B00FCF1E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DC4A8C112F42B32B00FCF1E1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DC4A8C122F42B32B00FCF1E1 /* CoveFrontendApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoveFrontendApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		DC4A8BD62F427C8F00FCF1E1 /* CoveFrontend */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = CoveFrontend;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		DC4A8BD12F427C8F00FCF1E1 /* Frameworks */ = {
@@ -32,7 +39,7 @@
 		DC4A8BCB2F427C8F00FCF1E1 = {
 			isa = PBXGroup;
 			children = (
-				DC4A8BD62F427C8F00FCF1E1 /* CoveFrontend */,
+				DC4A8C132F42B32B00FCF1E1 /* CoveFrontend */,
 				DC4A8BD52F427C8F00FCF1E1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +50,43 @@
 				DC4A8BD42F427C8F00FCF1E1 /* CoveFrontend.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		DC4A8C0B2F42B32B00FCF1E1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DC4A8C0A2F42B32B00FCF1E1 /* MapUser.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		DC4A8C0D2F42B32B00FCF1E1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				DC4A8C0C2F42B32B00FCF1E1 /* FrontendMapViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		DC4A8C0F2F42B32B00FCF1E1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DC4A8C0E2F42B32B00FCF1E1 /* AvatarMarkerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DC4A8C132F42B32B00FCF1E1 /* CoveFrontend */ = {
+			isa = PBXGroup;
+			children = (
+				DC4A8C0B2F42B32B00FCF1E1 /* Models */,
+				DC4A8C0D2F42B32B00FCF1E1 /* ViewModels */,
+				DC4A8C0F2F42B32B00FCF1E1 /* Views */,
+				DC4A8C102F42B32B00FCF1E1 /* Assets.xcassets */,
+				DC4A8C112F42B32B00FCF1E1 /* ContentView.swift */,
+				DC4A8C122F42B32B00FCF1E1 /* CoveFrontendApp.swift */,
+			);
+			path = CoveFrontend;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -59,9 +103,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				DC4A8BD62F427C8F00FCF1E1 /* CoveFrontend */,
 			);
 			name = CoveFrontend;
 			packageProductDependencies = (
@@ -109,6 +150,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC4A8C192F42B32B00FCF1E1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +161,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC4A8C142F42B32B00FCF1E1 /* MapUser.swift in Sources */,
+				DC4A8C172F42B32B00FCF1E1 /* ContentView.swift in Sources */,
+				DC4A8C182F42B32B00FCF1E1 /* CoveFrontendApp.swift in Sources */,
+				DC4A8C1A2F42B3F400FCF1E1 /* FrontendMapViewModel.swift in Sources */,
+				DC4A8C1B2F42B40D00FCF1E1 /* AvatarMarkerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +298,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4U7TKK9R2M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -282,6 +330,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4U7TKK9R2M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
