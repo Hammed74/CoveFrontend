@@ -11,8 +11,8 @@
 		DC4A8C172F42B32B00FCF1E1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4A8C112F42B32B00FCF1E1 /* ContentView.swift */; };
 		DC4A8C182F42B32B00FCF1E1 /* CoveFrontendApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4A8C122F42B32B00FCF1E1 /* CoveFrontendApp.swift */; };
 		DC4A8C192F42B32B00FCF1E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC4A8C102F42B32B00FCF1E1 /* Assets.xcassets */; };
-		DC4A8C1A2F42B3F400FCF1E1 /* FrontendMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4A8C0C2F42B32B00FCF1E1 /* FrontendMapViewModel.swift */; };
 		DC4A8C1B2F42B40D00FCF1E1 /* AvatarMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4A8C0E2F42B32B00FCF1E1 /* AvatarMarkerView.swift */; };
+		DCB76D322F42DA870082244C /* MapboxMaps in Frameworks */ = {isa = PBXBuildFile; productRef = DCB76D312F42DA870082244C /* MapboxMaps */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCB76D322F42DA870082244C /* MapboxMaps in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +107,7 @@
 			);
 			name = CoveFrontend;
 			packageProductDependencies = (
+				DCB76D312F42DA870082244C /* MapboxMaps */,
 			);
 			productName = CoveFrontend;
 			productReference = DC4A8BD42F427C8F00FCF1E1 /* CoveFrontend.app */;
@@ -135,6 +137,9 @@
 			);
 			mainGroup = DC4A8BCB2F427C8F00FCF1E1;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				DCB76D302F42DA870082244C /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = DC4A8BD52F427C8F00FCF1E1 /* Products */;
 			projectDirPath = "";
@@ -164,7 +169,6 @@
 				DC4A8C142F42B32B00FCF1E1 /* MapUser.swift in Sources */,
 				DC4A8C172F42B32B00FCF1E1 /* ContentView.swift in Sources */,
 				DC4A8C182F42B32B00FCF1E1 /* CoveFrontendApp.swift in Sources */,
-				DC4A8C1A2F42B3F400FCF1E1 /* FrontendMapViewModel.swift in Sources */,
 				DC4A8C1B2F42B40D00FCF1E1 /* AvatarMarkerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,6 +381,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DCB76D302F42DA870082244C /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mapbox/mapbox-maps-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DCB76D312F42DA870082244C /* MapboxMaps */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DCB76D302F42DA870082244C /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */;
+			productName = MapboxMaps;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DC4A8BCC2F427C8F00FCF1E1 /* Project object */;
 }

@@ -1,63 +1,62 @@
 import SwiftUI
-import MapKit
+import CoreLocation
+import MapboxMaps
+
+struct UserPin: Identifiable {
+    let id: String
+    let name: String
+    var coordinate: CLLocationCoordinate2D
+}
 
 struct ContentView: View {
-    @StateObject private var vm = FrontendMapViewModel()
+    @State private var viewport: Viewport = .camera(
+        center: CLLocationCoordinate2D(latitude: 39.96170877260263, longitude: -75.14682905841208),
+        zoom: 13,
+        bearing: 0,
+        pitch: 0
+    )
+        @State private var users: [UserPin] = [
+            UserPin(id: "you", name: "You", coordinate: CLLocationCoordinate2D(latitude: 39.96170877260263, longitude: -75.14682905841208)),
+            UserPin(id: "mia", name: "mia", coordinate: CLLocationCoordinate2D(latitude: 39.96270877260263, longitude: -75.14782905841208)),
+            UserPin(id: "leo", name: "leo", coordinate: CLLocationCoordinate2D(latitude: 39.96370877260263, longitude: -75.14582905841208))
+        ]
     
     var body: some View {
-        ZStack(alignment: .top) {
-            Map(position: $vm.cameraPosition){
-                ForEach(vm.users) { user in
-                    Annotation(user.name, coordinate: user.coordinate, anchor: .bottom){
-                        AvatarMarkerView(
-                            name: user.name,
-                            color: colorForUser(id: user.id),
-                            isYou: user.id == "you"
-                        )
+        ZStack(alignment: .bottom) {
+            Map(viewport: $viewport) {
+                ForEvery(users) { user in
+                    MapViewAnnotation(coordinate: user.coordinate) {
+                        VStack(spacing: 4) {
+                            Circle()
+                                .fill(user.id == "you" ? .blue : .orange)
+                                .frame(width: user.id == "you" ? 26 : 22, height: user.id == "you" ? 26 : 22)
+                            Text(user.name).font(.caption2).padding(4).background(.thinMaterial).clipShape(Capsule())
+                        }
                     }
                 }
             }
-            .mapStyle(.standard(elevation: .flat))
+            .mapStyle(.standard(
+                lightPreset: .day,
+                showPointOfInterestLabels: false,
+                showTransitLabels: false,
+                showPlaceLabels: false,
+                showRoadLabels: true
+                )
+            )
             .ignoresSafeArea()
             
-            HStack(spacing: 10) {
-                Text(vm.simulationRunning ? "Simulation: ON" : "Simulation: OFF")
-                Text("Users: \(vm.users.count)")
-            }
-            .font(.caption)
-            .padding(.horizontal, 12)
-            .padding(.vertical, 8)
-            .background(.thinMaterial)
-            .clipShape(Capsule())
-            .padding(.top, 12)
+            Button("Recenter") {recenterOnYou()}
+                .buttonStyle(.borderedProminent)
+                .padding(.bottom, 30)
         }
         
-        .safeAreaInset(edge: .bottom) {
-            HStack(spacing: 12) {
-                Button("Start") { vm.startSimulation()}
-                    .buttonStyle(.borderedProminent)
-                
-                Button("Stop") { vm.stopSimulation()}
-                    .buttonStyle(.bordered)
-                
-//                Button("Recenter") { vm.recenterOnYou()}
-//                    .buttonStyle(.bordered)
-            }
-            .padding(12)
-            .background(.ultraThinMaterial)
-        }
-        .onAppear(perform: vm.startSimulation)
-        .onDisappear(perform: vm.stopSimulation)
     }
-    private func colorForUser(id: String) -> Color {
-        if id == "you" {return .blue }
-        
-        var hasher = Hasher()
-        hasher.combine(id)
-        let hash = abs(hasher.finalize())
-        let hue = Double(hash % 360) / 360.0
-        return Color(hue: hue, saturation: 0.75, brightness: 0.92)
-        
+    
+    private func recenterOnYou() {
+        guard let you = users.first(where: {$0.id == "you"}) else { return }
+        withViewportAnimation(.easeIn(duration: 0.35)) {
+            viewport = .camera(center: you.coordinate, zoom: 14, bearing: 0, pitch: 0)
+        }
     }
 }
 

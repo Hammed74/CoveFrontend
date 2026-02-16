@@ -12,7 +12,7 @@ final class FrontendMapViewModel: ObservableObject {
     private var timer: Timer?
     
     init() {
-        let center = CLLocationCoordinate2D(latitude: 37.7749, longitude: -122.4194)
+        let center = CLLocationCoordinate2D(latitude: 39.9616747457703, longitude: -75.14688251682965)
         
         cameraPosition = .region(
             MKCoordinateRegion(
